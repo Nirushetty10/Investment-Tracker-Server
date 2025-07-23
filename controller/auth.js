@@ -12,6 +12,8 @@ export const loginUser = async (req, res, next) => {
 
     const isPasswordCorrect = await bcrypt.compare(passWord, user.passWord);
     if (isPasswordCorrect) {
+       user.loginCount = (user.loginCount || 0) + 1;
+       await user.save();
         const token = jwt.sign(
           { id: user._id, userName: user.userName, isAdmin: user.isAdmin },
           process.env.JWT_SECRETE

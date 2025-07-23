@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema(
     userName: { type: String, required: true },
     passWord: { type: String, required: true },
     isAdmin: { type: Boolean, default: false },
+    loginCount: {type: Number, default: 0}
   },
   { timestamps: true }
 );
