@@ -33,7 +33,10 @@ mongoose.connection.on('disconnected', () => {
 });
 
 const corsOptions = {
-  origin: 'http://localhost:3031',
+  origin: [
+    'http://localhost:3031', // local dev
+    'https://investment-tracker-s1ki.onrender.com' // Render frontend
+  ],
   credentials: true,
 };
 
