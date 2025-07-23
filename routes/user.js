@@ -5,10 +5,11 @@ import { verifyAdmin } from '../uitls/verifyToken.js';
 const router = express.Router();
 
 // CREATE USER
-router.post("/createUser",verifyAdmin, createUser);
+router.post("/createUser", createUser);
 // router.post("/createUser" , verifyUser, createUser);
 
 // GET ALL USER
-router.get("/getAllUsers",verifyAdmin, getAllUsers);
+// router.get("/getAllUsers",verifyAdmin, getAllUsers);
+router.get("/getAllUsers", getAllUsers);
 
 export default router;
