@@ -20,8 +20,13 @@ export const loginUser = async (req, res, next) => {
         res
           .status(200)
           // .cookie('access_token', token, { httpOnly: true, secure: true, sameSite: 'None' })
-          .cookie('access_token', token, { httpOnly: true })
-          .json({...other});
+          .cookie("access_token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "None", 
+            maxAge: 1000 * 60 * 60 * 24,
+          })
+          .json({ ...other });
     } else {
       res.status(500).json('Wrong username / password!');
     }
