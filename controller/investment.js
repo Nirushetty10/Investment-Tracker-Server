@@ -37,7 +37,7 @@ export const getInvestments = async (req, res) => {
   try {
     const investments = await Investments.find({
       userID
-    });
+    }).sort({investmentDate: -1});;
 
     res.status(200).json(investments);
   } catch (err) {

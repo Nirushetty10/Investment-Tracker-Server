@@ -36,7 +36,7 @@ export const getReturns = async (req, res) => {
   try {
     const returns = await Returns.find({
       userID
-    });
+    }).sort({ receivedDate: -1 });
 
     res.status(200).json(returns);
   } catch (err) {
